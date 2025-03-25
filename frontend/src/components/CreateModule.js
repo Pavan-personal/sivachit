@@ -44,7 +44,7 @@ const CreateModule = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/modules/create", {
+      const response = await fetch("https://sivachit-dcbb.vercel.app/modules/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

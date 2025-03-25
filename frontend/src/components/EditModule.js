@@ -45,7 +45,7 @@ const EditModule = () => {
     const fetchModule = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get(`http://localhost:5000/modules/${id}`, {
+        const response = await axios.get(`https://sivachit-dcbb.vercel.app/modules/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -104,7 +104,7 @@ const EditModule = () => {
       formData.append("image", file);
 
       const response = await axios.post(
-        "http://localhost:5000/modules/upload-image",
+        "https://sivachit-dcbb.vercel.app/modules/upload-image",
         formData,
         {
           headers: {
@@ -147,7 +147,7 @@ const EditModule = () => {
       formData.append("video", file);
 
       const response = await axios.post(
-        "http://localhost:5000/modules/upload-video",
+        "https://sivachit-dcbb.vercel.app/modules/upload-video",
         formData,
         {
           headers: {
@@ -252,7 +252,7 @@ const EditModule = () => {
         quizzes: quizzes.map(({ id, _id, ...rest }) => rest) // Remove temporary IDs
       };
       
-      await axios.put(`http://localhost:5000/modules/${id}`, moduleData, {
+      await axios.put(`https://sivachit-dcbb.vercel.app/modules/${id}`, moduleData, {
         headers: {
           Authorization: `Bearer ${token}`
         }

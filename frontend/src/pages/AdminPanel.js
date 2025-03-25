@@ -37,7 +37,7 @@ const AdminPanel = () => {
     const fetchModules = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get("http://localhost:5000/modules", {
+        const response = await axios.get("https://sivachit-dcbb.vercel.app/modules", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -76,7 +76,7 @@ const AdminPanel = () => {
       formData.append("image", file);
 
       const response = await axios.post(
-        "http://localhost:5000/modules/upload-image",
+        "https://sivachit-dcbb.vercel.app/modules/upload-image",
         formData,
         {
           headers: {
@@ -119,7 +119,7 @@ const AdminPanel = () => {
       formData.append("video", file);
 
       const response = await axios.post(
-        "http://localhost:5000/modules/upload-video",
+        "https://sivachit-dcbb.vercel.app/modules/upload-video",
         formData,
         {
           headers: {
@@ -202,7 +202,7 @@ const AdminPanel = () => {
       // Prepare quizzes data - remove unnecessary client-side IDs
       const sanitizedQuizzes = quizzes.map(({ id, ...rest }) => rest);
       await axios.post(
-        "http://localhost:5000/modules/create",
+        "https://sivachit-dcbb.vercel.app/modules/create",
         {
           title,
           content,
@@ -528,7 +528,7 @@ const AdminPanel = () => {
                       if (window.confirm("Are you sure you want to delete this module?")) {
                         try {
                           const token = localStorage.getItem("token");
-                          await axios.delete(`http://localhost:5000/modules/${module._id}`, {
+                          await axios.delete(`https://sivachit-dcbb.vercel.app/modules/${module._id}`, {
                             headers: {
                               Authorization: `Bearer ${token}`
                             }

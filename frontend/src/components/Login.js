@@ -15,8 +15,8 @@ const Login = () => {
         try {
             // Use different endpoints based on role selection
             const endpoint = isAdmin 
-                ? "http://localhost:5000/auth/admin/login" 
-                : "http://localhost:5000/auth/user/login";
+                ? "https://sivachit-dcbb.vercel.app/auth/admin/login" 
+                : "https://sivachit-dcbb.vercel.app/auth/user/login";
                 
             const response = await axios.post(endpoint, {
                 email,

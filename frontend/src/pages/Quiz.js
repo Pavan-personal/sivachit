@@ -21,7 +21,7 @@ const Quiz = () => {
     const fetchModuleData = (token) => {
       // Fetch the module with quizzes
       axios
-        .get(`http://localhost:5000/modules/${id}`, {
+        .get(`https://sivachit-dcbb.vercel.app/modules/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => {
@@ -56,7 +56,7 @@ const Quiz = () => {
     };
     // First check if the user has already completed this quiz
     axios
-      .get(`http://localhost:5000/quizzes/results/${id}`, {
+      .get(`https://sivachit-dcbb.vercel.app/quizzes/results/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -216,7 +216,7 @@ const Quiz = () => {
 
       axios
         .post(
-          `http://localhost:5000/quizzes/results`,
+          `https://sivachit-dcbb.vercel.app/quizzes/results`,
           {
             moduleId: id,
             score: score,

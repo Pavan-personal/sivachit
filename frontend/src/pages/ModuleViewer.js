@@ -42,7 +42,7 @@ const ModuleViewer = () => {
         setUserRole(role);
 
         // Fetch module content
-        const response = await axios.get(`http://localhost:5000/modules/${id}`, {
+        const response = await axios.get(`https://sivachit-dcbb.vercel.app/modules/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
 
@@ -61,7 +61,7 @@ const ModuleViewer = () => {
         if (role !== "admin") {
           try {
             // Fetch user progress for this module
-            const progressResponse = await axios.get(`http://localhost:5000/progress/${id}`, {
+            const progressResponse = await axios.get(`https://sivachit-dcbb.vercel.app/progress/${id}`, {
               headers: { Authorization: `Bearer ${token}` }
             });
             
@@ -114,7 +114,7 @@ const ModuleViewer = () => {
         
         // Mark the current slide as completed
         const response = await axios.post(
-          "http://localhost:5000/progress/slide-complete",
+          "https://sivachit-dcbb.vercel.app/progress/slide-complete",
           { moduleId: id, slideIndex: currentSlideIndex },
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -185,7 +185,7 @@ const ModuleViewer = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:5000/progress/quiz-results",
+        "https://sivachit-dcbb.vercel.app/progress/quiz-results",
         { 
           moduleId: id, 
           score, 
@@ -204,7 +204,7 @@ const ModuleViewer = () => {
       const token = localStorage.getItem("token");
       // Reset quiz results on the server
       const response = await axios.post(
-        `http://localhost:5000/progress/reset-quiz/${id}`, 
+        `https://sivachit-dcbb.vercel.app/progress/reset-quiz/${id}`, 
         {}, 
         { headers: { Authorization: `Bearer ${token}` } }
       );

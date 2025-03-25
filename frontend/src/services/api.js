@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL: "http://localhost:5000", // Change if backend is running on a different port
+    baseURL: "https://sivachit-dcbb.vercel.app", // Change if backend is running on a different port
 });
 
 // Add an interceptor to automatically add the token to every request

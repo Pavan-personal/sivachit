@@ -21,13 +21,13 @@ const Dashboard = () => {
     const fetchUserData = async () => {
       try {
         // Fetch user information
-        const userResponse = await axios.get("http://localhost:5000/auth/me", {
+        const userResponse = await axios.get("https://sivachit-dcbb.vercel.app/auth/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUserInfo(userResponse.data);
 
         // Fetch modules based on user role
-        const modulesResponse = await axios.get("http://localhost:5000/modules", {
+        const modulesResponse = await axios.get("https://sivachit-dcbb.vercel.app/modules", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setModules(modulesResponse.data);
@@ -36,7 +36,7 @@ const Dashboard = () => {
         if (userResponse.data.role !== "admin") {
           try {
             const progressResponse = await axios.get(
-              "http://localhost:5000/progress/user",
+              "https://sivachit-dcbb.vercel.app/progress/user",
               {
                 headers: { Authorization: `Bearer ${token}` },
               }
